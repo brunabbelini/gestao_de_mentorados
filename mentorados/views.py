@@ -7,11 +7,21 @@ from django.contrib.messages import constants
 def mentorados(request):
     if not request.user.is_authenticated:
         return redirect('login')
+    
     if request.method == 'GET':
         navigators = Navigators.objects.filter(user=request.user)
         mentorados = Mentorados.objects.filter(user=request.user)
+
+        estagios_flat = [i[1] for i in Mentorados.estagio_choices]
+        qtd_estagios = []
+
+        for i, j in Mentorados.estagio_choices:
+            x= Mentorados.objects.filter(estagio=i).filter(user=request.user).count()
+            qtd_estagios.append(x)
+
         return render(request, 'mentorados.html', {'estagios': Mentorados.estagio_choices,
-        'navigators': navigators, 'mentorados': mentorados})
+        'navigators': navigators, 'mentorados': mentorados, 'estagios_flat': estagios_flat, 'qtd_estagios': qtd_estagios})
+    
     elif request.method == 'POST':
         nome = request.POST.get('nome')
         foto = request.FILES.get('foto')
