@@ -48,3 +48,17 @@ class DisponibilidadeHorarios(models.Model):
     @property
     def data_final(self):
         return self.data_inicial + timedelta(minutes=50)
+
+
+class Reuniao(models.Model):
+    tag_choices = (
+        ('G', 'Gestão'),
+        ('M', 'Marketing'),
+        ('RH', 'Gestão de pessoas'),
+        ('I', 'Impostos')
+    )
+
+    data = models.ForeignKey(DisponibilidadeHorarios, on_delete=models.CASCADE)
+    mentorado = models.ForeignKey(Mentorados, on_delete=models.CASCADE)
+    tag = models.CharField(max_length=2, choices=tag_choices)
+    descricao = models.TextField()
