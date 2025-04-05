@@ -1,0 +1,81 @@
+# Sistema de Gerenciamento de Mentorias 🎓✨
+
+Este é um sistema web desenvolvido com Django, TailwindCSS e HTMX, com foco na organização de mentorias, gerenciamento de tarefas e acompanhamento de reuniões com mentorados.
+
+## 🚀 Tecnologias Utilizadas
+
+- [Django](https://www.djangoproject.com/) — Back-end do projeto
+- [Tailwind CSS](https://tailwindcss.com/) — Estilização moderna e responsiva
+- [HTMX](https://htmx.org/) — Requisições assíncronas sem precisar de JavaScript complexo
+- [SQLite](https://www.sqlite.org/index.html) — Banco de dados padrão
+- HTML5, CSS3, Python 3.12+
+
+## 📚 Funcionalidades
+
+- Cadastro de **mentorados** com upload de fotos
+- Registro de **tarefas** para cada mentorado
+- Marcação de tarefas como realizadas (via HTMX e checkbox)
+- Upload e exibição de **vídeos** de reuniões
+- Interface limpa e responsiva com Tailwind
+
+## 📸 Tela do Projeto
+
+<p align="center">
+  <img src="screenshot.png" alt="Tela do sistema" width="600">
+</p>
+
+## 🔧 Como rodar o projeto localmente
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/seuusuario/seu-repositorio.git
+cd seu-repositorio
+```
+
+2. Crie e ative um ambiente virtual:
+python -m venv venv
+source venv/bin/activate  # Linux/macOS
+venv\Scripts\activate      # Windows
+
+3. Instale as dependências:
+
+   
+4. Aplique as migrações e inicie o servidor:
+python manage.py migrate
+python manage.py runserver
+
+5. Acesse: http://localhost:8000
+   
+## 📁 Estrutura Principal
+gestao_de_mentorados/ 
+├── core/
+│   ├── __init__.py 
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── mentorados/
+│   ├── migrations/
+│   ├── templates/
+|   ├── apps.py
+|   ├── admin.py
+|   ├── auth.py
+│   ├── models.py
+│   ├── views.py
+│   └── urls.py
+├── media/
+├── templates/
+│   ├── static/
+│   ├── base.html
+├── venv/
+├── db.sqlite3
+├── manage.py
+
+
+## 📝 Licença
+Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
+
+
+Desenvolvido com 💙 por Bruna Belini
+
+
