@@ -6,11 +6,11 @@ from django.contrib import messages
 from django.contrib.messages import constants
 from datetime import datetime, timedelta
 from .auth import valida_token
+from django.contrib.auth.decorators import login_required
 
+
+@login_required
 def mentorados(request):
-    if not request.user.is_authenticated:
-        return redirect('login')
-    
     if request.method == 'GET':
         navigators = Navigators.objects.filter(user=request.user)
         mentorados = Mentorados.objects.filter(user=request.user)
@@ -45,6 +45,7 @@ def mentorados(request):
         return redirect('mentorados')
 
 
+@login_required
 def reunioes(request):
     if request.method == 'GET':
         reunioes = Reuniao.objects.filter(data__mentor=request.user)
@@ -146,6 +147,7 @@ def agendar_reuniao(request):
         return redirect('escolher_dia')
 
 
+@login_required
 def tarefa(request, id):
     mentorado = Mentorados.objects.get(id=id)
     if mentorado.user != request.user:
@@ -167,6 +169,7 @@ def tarefa(request, id):
     return redirect(f'/mentorados/tarefa/{mentorado.id}')
 
 
+@login_required
 def upload(request, id):
     mentorado = Mentorados.objects.get(id=id)
     if mentorado.user != request.user:
@@ -203,5 +206,5 @@ def tarefa_alterar(request, id):
         raise Http404()
     tarefa.realizada = not tarefa.realizada
     tarefa.save()
-    
+
     return HttpResponse('Teste')
