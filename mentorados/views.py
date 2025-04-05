@@ -152,7 +152,8 @@ def tarefa(request, id):
 
     if request.method == 'GET':
         tarefas = Tarefa.objects.filter(mentorado=mentorado)
-        return render(request, 'tarefa.html', {'mentorado': mentorado, 'tarefas': tarefas})
+        videos = Upload.objects.filter(mentorado=mentorado)
+        return render(request, 'tarefa.html', {'mentorado': mentorado, 'tarefas': tarefas, 'videos':videos})
     else:
         tarefa = request.POST.get('tarefa')
 
@@ -162,4 +163,18 @@ def tarefa(request, id):
         )
         t.save()
 
+    return redirect(f'/mentorados/tarefa/{mentorado.id}')
+
+
+def upload(request, id):
+    mentorado = Mentorados.objects.get(id=id)
+    if mentorado.user != request.user:
+        raise Http404()
+    
+    video = request.FILES.get('video')
+    upload = Upload(
+        mentorado=mentorado,
+        video=video
+    )
+    upload.save()
     return redirect(f'/mentorados/tarefa/{mentorado.id}')
