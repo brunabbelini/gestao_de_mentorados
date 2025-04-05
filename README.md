@@ -18,12 +18,66 @@ A plataforma permite que mentores acompanhem o progresso de seus mentorados, atr
 - Marcação de tarefas como realizadas (via HTMX e checkbox)
 - Upload e exibição de **vídeos** de reuniões
 - Interface limpa e responsiva com Tailwind
+  
+## 📁 Estrutura Principal
+```bash
+gestao_de_mentorados/ 
+├── core/                                                                
+│   ├── __init__.py                                                      
+│   ├── settings.py                                                      
+│   ├── urls.py                                                          
+│   └── wsgi.py
+├── mentorados/
+│   ├── migrations/
+│   ├── templates/ 
+|   ├── apps.py
+|   ├── admin.py
+|   ├── auth.py
+│   ├── models.py
+│   ├── views.py
+│   └── urls.py
+├── media/
+├── templates/
+│   ├── static/
+│   ├── base.html
+├── usuarios/
+│   ├── templates/
+│   ├── views.py
+│   └── urls.py
+├── venv/
+├── db.sqlite3
+├── manage.py
+└── requirements.txt
+```
 
-## 📸 Tela do Projeto
+## Demonstrações da Aplicação
+✅ Cadastro e Autenticação
 
-<p align="center">
-  <img src="screenshot.png" alt="Tela do sistema" width="600">
-</p>
+| Cadastro de usuários | Login com erro de autenticação |
+|:--:|:--:|
+|![cadastro_usuarios](https://github.com/user-attachments/assets/4ad50d6f-aa82-4000-a74a-ea6392879aa2) |![login_incorreto](https://github.com/user-attachments/assets/d7d8789f-2e86-4d6d-be83-6433e38a9b40)
+
+| Autenticação bem-sucedida e acesso aos mentorados |
+|:--:|
+|![mentorados_auth](https://github.com/user-attachments/assets/e1d08469-6a1f-4258-a5f1-90ae2d0e40ba)
+
+👨‍🏫 Gerenciamento de Mentorados
+| Cadastro de mentorados | Tarefa - Mentor |
+|:--:|:--:|
+| ![cadastro_mentorados](https://github.com/user-attachments/assets/6d68dc8e-7a33-4141-88e5-0be8f05a69cf) |![tarefa_mentor](https://github.com/user-attachments/assets/403a3db1-8c42-4b49-b7ea-1f2bad5732ad)
+
+| Tarefa - Mentorado |
+|:--:|
+|![tarefa_mentorado](https://github.com/user-attachments/assets/b9be1d5b-7f16-4f4e-afae-cf52887b6f09)
+
+📅 Reuniões
+| Escolher dia | Agendar reunião |
+|:--:|:--:|
+| ![escolher_dia](https://github.com/user-attachments/assets/f14d1e61-739a-4ce1-88ad-74b7a838c368) |![agendar_reuniao](https://github.com/user-attachments/assets/17fd8c68-fba8-450a-8f4b-94e357a13c2e)
+
+| Reunião marcada |
+|:--:|
+| ![abrir_reuniao](https://github.com/user-attachments/assets/ed633973-5240-4a04-a265-b6fe619e2eeb)
 
 ## 🔧 Como rodar o projeto localmente
 
@@ -57,62 +111,6 @@ python manage.py createsuperuser
 python manage.py runserver
 ``` 
 Acesse no navegador: http://127.0.0.1:8000
-   
-## 📁 Estrutura Principal
-gestao_de_mentorados/ 
-
-├── core/                                                                
-
-│   ├── __init__.py                                                      
-
-│   ├── settings.py                                                      
-
-│   ├── urls.py                                                          
-
-│   └── wsgi.py
-
-├── mentorados/
-
-│   ├── migrations/
-
-│   ├── templates/ 
-
-|   ├── apps.py
-
-|   ├── admin.py
-
-|   ├── auth.py
-
-│   ├── models.py
-
-│   ├── views.py
-
-│   └── urls.py
-
-├── media/
-
-├── templates/
-
-│   ├── static/
-
-│   ├── base.html
-
-├── usuarios/
-
-│   ├── templates/
-
-│   ├── views.py
-
-│   └── urls.py
-
-├── venv/
-
-├── db.sqlite3
-
-├── manage.py
-
-└── requirements.txt
-
 
 ## 📝 Licença
 Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
